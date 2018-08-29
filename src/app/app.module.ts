@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ContactManagerAppComponent } from './contact-manager/contact-manager-app.component';
+import { ContactManagerModule } from './contact-manager/contact-manager.module';
 
 const routes: Routes = [
   { path: 'contactmanager', loadChildren: './contact-manager/contact-manager.module#ContactManagerModule' },
@@ -15,13 +16,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ContactManagerAppComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    ContactManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
