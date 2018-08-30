@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '../shared/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { Routes, RouterModule, Router } from '@angular/router';
@@ -13,6 +13,8 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { ContactManagerAppComponent } from './contact-manager-app.component';
 import { UserService } from './services/user.service';
+import { NotesComponent } from './components/notes/notes.component';
+import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 
 const routes: Routes = [
   { path: '', component: ContactManagerAppComponent,
@@ -28,6 +30,7 @@ const routes: Routes = [
     HttpClientModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forChild(routes)
   ],
@@ -38,6 +41,11 @@ const routes: Routes = [
     ToolbarComponent,
     MainContentComponent,
     SideNavComponent,
-    ContactManagerAppComponent]
+    ContactManagerAppComponent,
+    NotesComponent,
+    NewContactDialogComponent],
+  entryComponents: [
+    NewContactDialogComponent
+  ]
 })
 export class ContactManagerModule { }

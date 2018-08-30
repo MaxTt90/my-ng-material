@@ -17,6 +17,8 @@ export class SideNavComponent implements OnInit {
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
 
   users: Observable<User[]>;
+  isDarkTheme = false;
+  dir = 'ltr';
 
   constructor(zone: NgZone, private userService: UserService, private router: Router) {
     this.mediaMatcher.addListener(mql => zone.run(() => this.mediaMatcher =  mql));
@@ -33,6 +35,14 @@ export class SideNavComponent implements OnInit {
         this.sidenav.close();
       }
     });
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir() {
+    this.dir = this.dir === 'ltr' ? 'rtl' : 'ltr';
   }
 
   isScreenSmall(): boolean {
